@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="Exam_Registrations_StyleSheet.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="title">Create Your Account</h3>
+
+        <div class="login">
+            <form action="/create_account" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">NSHE Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm">Confirm Password:</label>
+                <input type="password" id="confirm" name="confirm" required>
+
+                <p id="error" style="color: red; display: none;">Passwords do not match</p>
+
+                <label for="role">Student or Faculty?</label>
+                <select id="role" name="role" required>
+                    <option value="Student">Student</option>
+                    <option value="Faculty">Faculty</option>
+                </select>
+
+                <button type="submit">Create Account</button>
+            </form>
+
+            <p class="create-account">
+                Already have an account?
+                <a href="Registration_Login.html">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function checkPasswords() {
+            const pw = document.getElementById("password").value;
+            const confirm = document.getElementById("confirm").value;
+            const error = document.getElementById("error");
+
+            if (pw != confirm) {
+                error.style.display = "block";
+                return false;
+            }
+
+            error.style.display = "none";
+            return true;
+        }
+    </script>
+</body>
+</html>
